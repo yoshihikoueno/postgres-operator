@@ -1213,7 +1213,7 @@ func (c *Cluster) initPreparedDatabaseRoles() error {
 					if err := c.initDefaultRoles(defaultUsers,
 						preparedDbName+constants.OwnerRoleNameSuffix,
 						preparedDbName+"_"+preparedSchemaName,
-						constants.DefaultSearchPath+", "+preparedSchemaName, preparedDB.SecretNamespace); err != nil {
+						constants.DefaultSearchPath+", "+preparedSchemaName+", public", preparedDB.SecretNamespace); err != nil {
 						return fmt.Errorf("could not initialize default users for database schema %s: %v", preparedSchemaName, err)
 					}
 				}
